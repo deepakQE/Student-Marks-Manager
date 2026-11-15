@@ -1,67 +1,41 @@
-# Students stored in a list, each student a tuple (name, marks)
-# Menu repeats until Exit: 1 Add · 2 Show all · 3 Topper · 4 Average · 5 Exit
-# Show all = numbered rows with name, marks, grade (90+ A, 75+ B, 60+ C, 40+ D, else Fail)
-# If there are no students, print a message — do not crash
-# One function per menu action
-# Then push to GitHub as student-marks-manager with a README: what it does, how to run it (python main.py), sample output.
-# This is your first project you can explain. It goes on your resume tonight.
-"""
-student = []
-name = ()
-marks = ()
-i = 1
-while(i>0):
-        user = int(input("Enter 1 = Add, 2 = Show all, 3 = Topper, 4 = Average, 5 = Exit"))
-            
-        if user == 1:
-            name  = input("Enter the name of Student: ")
-            marks  = int(input("Enter the marks of Student: "))
-            student+=(name)
-            student+=(marks)
-
-        elif user == 2:
-            print(student)
-        elif user == 3:
-            t = 0
-            for j in student:
-                 if t < j:
-                      j == 0
-            print(j)          
-        elif user == 4:
-            
-        elif user == 5:
-            break
-        else:
-            print("wrong Input")
-        """
-
-students = []          # list of (name, marks) tuples
+students = []
 
 def grade(marks):
-    """Return 'A','B','C','D' or 'Fail'. RETURN it, do not print it."""
-    # YOUR CODE: if / elif ladder from Day 2
-    pass
+    if student >= 90:
+        print("A")
+    elif student >=75:
+        print("B")
+    elif student >=60:
+        print("C")
+    elif student >=40:
+        print("D")
+    else:
+        print("Fail")
+
 
 def add_student():
     name = input("Name: ")
     marks = float(input("Marks: "))
-    students.append((name, marks))     # <-- THE line you were missing
+    students.append((name, marks))  
     print("Student added")
 
 def show_all():
     """Print:  1. Deepak - 87.0 - B"""
     if len(students) == 0:
         print("No students yet")
-        return
-    # YOUR CODE: for i, (name, marks) in enumerate(students, start=1):
-    pass
+    else:
+        print(students)
 
 def show_topper():
     if len(students) == 0:
         print("No students yet")
-        return
-    # YOUR CODE: best = students[0], loop, if student[1] > best[1]: best = student
-    pass
+    else:
+        best = students[0]
+        for i in len(students):
+            if students[i] > best[1]:
+                best = students[i]
+        print(best)
+    
 
 def show_average():
     if len(students) == 0:
